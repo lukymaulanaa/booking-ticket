@@ -81,6 +81,19 @@ class Admin extends CI_Controller {
 		$this->load->view('/template/footer');
 	}
 
+	public function edit_customer($id_customer){
+	if ($this->input->post('submit')) {
+		$this->Admin_Model->edit_customer($id_customer);
+		redirect('admin/customer','refresh');
+		}
+		$data['customer'] = $this->Admin_Model->view_id_customer($id_customer);
+		$this->load->view('/template/header');
+		$this->load->view('/template/sidebar');
+		$this->load->view('/admin/edit-customer',$data);
+		$this->load->view('/template/footer');
+
+	}
+
 	public function hapus_customer($id_customer){
 		$this->Admin_Model->hapus_customer($id_customer);
 		redirect('Admin/customer','refresh');

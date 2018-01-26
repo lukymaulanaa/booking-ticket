@@ -217,13 +217,13 @@
   <!-- User Account: style can be found in dropdown.less -->
   <li class="dropdown user user-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-      <img src="http://localhost/travel/assets/adminlte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+      <img src="http://localhost/bookingku/assets/adminlte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
       <span class="hidden-xs">Alexander Pierce</span>
     </a>
     <ul class="dropdown-menu">
       <!-- User image -->
       <li class="user-header">
-        <img src="http://localhost/travel/assets/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        <img src="http://localhost/bookingku/assets/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
         <p>
           Alexander Pierce - Web Developer
@@ -271,7 +271,7 @@
     <!-- Sidebar user panel -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="http://localhost/travel/assets/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        <img src="http://localhost/bookingku/assets/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
         <p>Alexander Pierce</p>
@@ -294,6 +294,7 @@
       <li class="header">MAIN NAVIGATION</li>
 
       <li><a href="<?php echo base_url('Admin/') ?>"><i class="fa fa-book"></i> <span>Tambah Data Customer</span></a></li>
+      <li><a href="<?php echo base_url('Admin/customer') ?>"><i class="fa fa-book"></i> <span>Lihat Data Customer</span></a></li>
     </ul>
   </section>
   <!-- /.sidebar -->

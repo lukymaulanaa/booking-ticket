@@ -66,8 +66,12 @@
               <td><?php echo $data->address ?></td>
               <td><?php echo $data->phone ?></td>
               <td><?php echo $data->gender ?></td>
-              <td>edit</td>
-              <td><a href="<?php echo base_url('/Admin/hapus_customer/').$data->id_customer; ?>">Hapus</a></td>
+              <td><a href="<?php echo base_url('/Admin/edit_customer/').$data->id_customer; ?>"
+              class="btn btn-primary">Edit</a></td>
+              <td><a href="<?php echo base_url('/Admin/hapus_customer/').$data->id_customer; ?>"
+              class="btn btn-danger">Hapus</a></td>
+              
+              <!-- <a href="<?php echo base_url('/Admin/hapus_customer/').$data->id_customer; ?>">Hapus</a> -->
             </tr>
             <?php } ?>
           </tbody></table>
