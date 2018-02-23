@@ -36,7 +36,7 @@
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Responsive Hover Table</h3>
+          <h3 class="box-title">Customer Table</h3>
 
           <div class="box-tools">
             <div class="input-group input-group-sm" style="width: 150px;">
@@ -66,12 +66,8 @@
               <td><?php echo $data->address ?></td>
               <td><?php echo $data->phone ?></td>
               <td><?php echo $data->gender ?></td>
-              <td><a href="<?php echo base_url('/Admin/edit_customer/').$data->id_customer; ?>"
-              class="btn btn-primary">Edit</a></td>
-              <td><a href="<?php echo base_url('/Admin/hapus_customer/').$data->id_customer; ?>"
-              class="btn btn-danger">Hapus</a></td>
-              
-              <!-- <a href="<?php echo base_url('/Admin/hapus_customer/').$data->id_customer; ?>">Hapus</a> -->
+              <td><a href="<?php echo base_url('/admin/edit_customer/').$data->id_customer; ?>"><button type="button" class="btn btn-info">Edit</button></a></td>
+              <td><a href="<?php echo base_url('/Admin/hapus_customer/').$data->id_customer; ?>"><button type="button" class="btn btn-danger">Delete</button></a></td>
             </tr>
             <?php } ?>
           </tbody></table>

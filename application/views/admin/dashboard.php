@@ -19,15 +19,15 @@
    $usr = $customer->id_customer;
    $newus = substr($usr,1,4);
 
-   $tambah=$newus+1;
+   $tambah=$newus;
    if ($tambah<10) {
-    $id="C000".$tambah;
+    $id="A000".$tambah;
   }
   else if($tambah>100){
-    $id="C0".$tambah;
+    $id="A0".$tambah;
   }
   else{
-    $id="C00".$tambah;
+    $id="A00".$tambah;
   }
 
   ?>

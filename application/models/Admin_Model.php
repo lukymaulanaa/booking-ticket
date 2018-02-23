@@ -19,6 +19,11 @@ class Admin_Model extends CI_Model {
 		$this->db->insert('customer', $data);
 	}
 
+	public function updatecustomer($id_customer,$data){
+		$this->db->where('id_customer', $id_customer);
+		return $this->db->update('customer', $data);
+	}
+
 	public function view_customer($config){
 		$hasilquery=$this->db->get('customer', $config['per_page'], $this->uri->segment(3));
 
@@ -29,26 +34,93 @@ class Admin_Model extends CI_Model {
 			return $data;
 		}
 	}
-	public function edit_customer($id_customer){
-		$data=array(
-			'name' => $this->input->post('name'),
-			'address' => $this->input->post('address'),
-			'phone' => $this->input->post('phone'),
-			'gender' => $this->input->post('gender')
-
-			);
-		$this->db->where('id_customer', $id_customer);
-		$this->db->update('customer', $data);
-	}
-
-	public function view_id_customer($id_customer)
-	{
-		$this->db->where('id_customer', $id_customer);
-		return $this->db->get('customer')->row();
-	}
 
 	public function hapus_customer($id_customer){
 		$this->db->where('id_customer', $id_customer);
 		$this->db->delete('customer');
 	}
-}
+
+	public function edit_customer($id_customer){
+		$this->db->where('id_customer', $id_customer);
+		$this->db->limit(1);
+		return $this->db->get('customer')->result_array();
+	   }
+
+	function simpanuser(){
+		$data=array(
+			'id_user' => $this->input->post('id_user'),
+			'username' => $this->input->post('username'),
+			'password' => $this->input->post('password'),
+			'fullname' => $this->input->post('fullname'),
+			'level' => $this->input->post('level')
+		);
+		$this->db->insert('user', $data);
+	}
+
+	public function updateuser($id_user,$data){
+		$this->db->where('id_user', $id_user);
+		return $this->db->update('user', $data);
+	}
+
+	public function view_user($config){
+
+		$query = $this->db->get('user',$config['per_page'], $this->uri->segment(3));
+		return $query->result();
+		
+	}
+
+	function hapus_user($id_user){
+		$this->db->where('id_user', $id_user);
+		$this->db->delete('user');
+	}
+	function edit_user($id_user){
+		$this->db->where('id_user', $id_user);
+		$this->db->limit(1);
+		return $this->db->get('user')->result_array();
+	}
+
+
+	function kode_user(){
+		$this->db->select_max('id_user');
+		return $this->db->get('user')->row();
+	}
+
+	function simpanbandara(){
+		$data=array(
+			'id' => $this->input->post('id'),
+			'kode' => $this->input->post('kode'),
+			'nama' => $this->input->post('name'),
+			'kota' => $this->input->post('kota'),
+		);
+		$this->db->insert('bandara', $data);
+		}
+
+		function updatebandara($id,$data){
+			$this->db->where('id', $id);
+			return $this->db->update('bandara', $data);
+		}
+	
+		function view_bandara($config){
+	
+			$query = $this->db->get('bandara',$config['per_page'], $this->uri->segment(3));
+			return $query->result();
+			
+		}
+	
+		function hapus_bandara($id){
+			$this->db->where('id', $id);
+			$this->db->delete('bandara');
+		}
+		function edit_bandara($id){
+			$this->db->where('id', $id);
+			$this->db->limit(1);
+			return $this->db->get('bandara')->result();
+		}
+
+		function kode_bandara(){
+			$this->db->select_max('id');
+			return $this->db->get('bandara')->row();
+		}
+
+
+	}

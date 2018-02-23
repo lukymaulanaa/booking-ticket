@@ -21,7 +21,47 @@ class Login extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('/template/header');
-		$this->load->view('auth/login');
+		$this->load->view('admin/login');
 		$this->load->view('/template/footer');
 	}
-}
+
+	function __construct(){
+		parent::__construct();
+		$this->load->model('data_login');
+	  
+	   }
+	  
+	   function cek_login(){
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$where = array(
+		 'username' => $username,
+		 'password' => $password
+		 );
+		$cek = $this->data_login->cek_login('user',$where)->num_rows();
+		if($cek > 0){
+	  
+		 $data_session = array(
+		  'nama' => $username,
+		  'status' => "login"
+		  );
+	  
+		 $this->session->set_userdata($data_session);
+	  
+		 redirect("admin/index");
+
+		}
+		
+		else{
+			echo ('Maaf Username Dan Password Anda Salah !');
+		
+		   }
+		   
+		}
+		 
+		  function logout(){
+		   $this->session->sess_destroy();
+		   redirect(base_url('login'));
+		  }
+		 }
+		 ?>
